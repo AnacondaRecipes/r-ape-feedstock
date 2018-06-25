@@ -38,6 +38,7 @@ requirements:
     - r-rcpp >=0.12.0
     - r-lattice
     - r-nlme
+    - libopenblas                # [osx]
 
   run:
     - r-base
@@ -45,6 +46,7 @@ requirements:
     - r-rcpp >=0.12.0
     - r-lattice
     - r-nlme
+    - libopenblas                # [osx]
 
 test:
   commands:
