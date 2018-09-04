@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: ape_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/ape_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ape/ape_{{ version }}.tar.gz
@@ -32,13 +31,15 @@ requirements:
     - {{native}}toolchain        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
     - r-rcpp >=0.12.0
     - r-lattice
     - r-nlme
-    - libopenblas                # [osx]
 
   run:
     - r-base
@@ -46,7 +47,6 @@ requirements:
     - r-rcpp >=0.12.0
     - r-lattice
     - r-nlme
-    - libopenblas                # [osx]
 
 test:
   commands:
